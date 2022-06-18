@@ -1,5 +1,3 @@
-elements = document.getElementsByClassName("Post")
-
 function handleElement(element){
   newDiv = document.createElement("div");
   element.parentElement.appendChild(newDiv);
@@ -9,10 +7,11 @@ function handleElement(element){
   element.setAttribute("style", "filter: blur(5px); pointer-events:none; padding-bot:-")
 };
 
-for(i in elements){
-  handleElement(i)
-};
-
-function get elements_reddit(){
-  list = document.getElementsByClassName("Post")
+function get_elements_reddit(){
+  elements = document.getElementsByClassName("Post")
+  for(i in elements){
+    handleElement(i)
+  }
 }
+
+window.addEventListener("DOMContendLoaded",get_elements_reddit())
