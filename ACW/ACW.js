@@ -10,8 +10,8 @@ function handleElement(element){
 function get_elements_reddit(){
   elements = document.getElementsByClassName("Post")
   for(i in elements){
-    handleElement(i)
+    handleElement(elements[i])
   }
 }
 
-window.addEventListener("DOMContendLoaded",get_elements_reddit())
+addEventListener("DOMContendLoaded",get_elements_reddit())

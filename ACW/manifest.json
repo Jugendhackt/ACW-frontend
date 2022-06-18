@@ -19,7 +19,7 @@
 },
   "content_scripts": [
     {
-      "matches": ["*://*.reddit.com/*"],
+      "matches": ["*://*.reddit.com/"],
       "js": ["ACW.js"]
     }
   ]
