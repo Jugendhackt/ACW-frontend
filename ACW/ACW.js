@@ -1,11 +1,13 @@
 function start_observer(){
   const targetNode = document.getElementsByClassName("Post")[0].parentElement;
-  const config = { attributes: true, childList: true, subtree: true };
+  const config = { attributes: true, childList: true,};
   const callback = function(mutationList, observer) {
       for(const mutation of mutationList) {
           if (mutation.type === 'childList') {
-            console.log(mutation.target)
-    setTimeout(handleElement(mutation.target), 100);
+            elements = document.getElementsByClassName("Post");
+            for(i in elements){
+              setTimeout(handleElement(mutation.target), 100);
+            }
           }
       }
   };
@@ -14,12 +16,20 @@ function start_observer(){
 }
 
 function handleElement(element){
-  newDiv = document.createElement("div");
-  element.parentElement.appendChild(newDiv);
-  newDiv.setAttribute("class", "PostOverlay");
-  newDiv.setAttribute("style", "border-style: solid; border-color: #898989; border-width: 1px; border-radius: 2px;");
-  newDiv.appendChild(element);
-  element.setAttribute("style", "filter: blur(5px); pointer-events:none; padding-bot:-10px")
+  try {
+    if (!(element.parentElement.classList.contains("DoNotWatch"))){
+    newDiv = document.createElement("div");
+    element.parentElement.appendChild(newDiv);
+    newDiv.setAttribute("class", "PostOverlay DoNotWatch");
+    newDiv.setAttribute("style", "border-style: solid; border-color: #898989; border-width: 1px; border-radius: 2px;");
+    newDiv.appendChild(element);
+    element.setAttribute("style", "filter: blur(10px); pointer-events:none; padding-bot:-10px")
+  }
+  } catch (e) {
+
+  } finally {
+
+  }
 };
 
 function get_elements_reddit(){
