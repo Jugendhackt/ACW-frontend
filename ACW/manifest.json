@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 0.1,
+  "name": "ACW",
+  "version": "1.0",
+
+  "description": "<description>",
+
+  "icons": {
+    "48": "icons/48.png"
+  },
+  "permissions": [
+  "activeTab"
+],
+"browser_action": {
+  "default_icon": "icons/32.png",
+  "default_title": "ACW",
+  "default_popup": "popup/config.html"
+},
+  "content_scripts": [
+    {
+      "matches": ["*://*.reddit.org/*"],
+      "js": ["ACW.js"]
+    }
+  ]
+
+}
