@@ -1,0 +1,16 @@
+/*const style = document.createElement("style");
+style.textContent = `
+.Post{
+  filter:blur(5px);
+}
+.Post div{
+  pointer-events:none;
+}
+`
+document.head.appendChild(style);
+console.log("miep")*/
+
+
+/*else if (mutation.type === 'attributes') {
+    console.log('The ' + mutation.attributeName + ' attribute was modified.');
+}*/
