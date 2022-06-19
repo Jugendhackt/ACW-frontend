@@ -36,17 +36,12 @@ function saveSwitchState(dict, id) {
   }
 }
 
-// function update(id) {
-//   checkbox = document.getElementById(id);
-//   boxes = document.getElementsByClassName("custom-control-input");
-//   let index = 0;
-//   for (let i in boxes) {
-//     if (boxes[i].id == id) {
-//       index = i;
-//     }
-//   }
-//   categories[Object.keys(categories)[-1]] = checkbox.checked;
-// }
+function update(id) {
+  checkbox = document.getElementById(id);
+  boxes = document.getElementsByClassName("custom-control-input");
+  key = boxes.parent.children[-1].innerHTML.replaceAll("&nbsp;", "");
+  categories[key] = checkbox.checked;
+}
 
 function contentLoaded() {
   addToHTML(categories, "topics", 2, 200);
