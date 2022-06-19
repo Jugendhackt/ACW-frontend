@@ -15,34 +15,43 @@
   observer.observe(targetNode, config);
 }*/
 
-function handleElement(element){
+function handleElement(element) {
   try {
-    if (!(element.parentElement.classList.contains("DoNotWatch"))) {
+    if (!element.parentElement.classList.contains("DoNotWatch")) {
       newDiv = document.createElement("div");
       element.parentElement.appendChild(newDiv);
       newDiv.setAttribute("class", "PostOverlay DoNotWatch");
-      newDiv.setAttribute("style", "border-style: solid; border-color: #898989; border-width: 1px; border-radius: 2px; display: flex; justify-content: center; align-items: center;");
+      newDiv.setAttribute(
+        "style",
+        "border-style: solid; border-color: #898989; border-width: 1px; border-radius: 2px; display: flex; justify-content: center; align-items: center;"
+      );
       newDiv.appendChild(element);
 
-
-      newDiv.onmouseover = function() {
+      newDiv.onmouseover = function () {
         testText = document.createElement("h6");
         testText.innerHTML = "This element was blurred by ACW.";
-        testText.setAttribute("style", "position: absolute; z-index: 999; flex: 0 0 120px; color: white; font-size: 35px; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;");
+        testText.setAttribute(
+          "style",
+          "position: absolute; z-index: 999; flex: 0 0 120px; color: white; font-size: 35px; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black;"
+        );
         element.parentElement.appendChild(testText);
-      }
+      };
 
-      newDiv.onmouseout = function() {          
-        try {  
+      newDiv.onmouseout = function () {
+        try {
           element.parentElement.removeChild(testText);
-        } catch(e) { }
-      }
+        } catch (e) {}
+      };
 
-      element.setAttribute("style", "filter: blur(10px); pointer-events:none; padding-bot:-10px")
-
+      element.setAttribute(
+        "style",
+        "filter: blur(10px); pointer-events:none; padding-bot:-10px"
+      );
     }
-  } catch (e) {} finally {}
-};
+  } catch (e) {
+  } finally {
+  }
+}
 
 function doBlur() {
   blurElements();
@@ -50,11 +59,10 @@ function doBlur() {
 
 function blurElements() {
   elements = document.getElementsByClassName("Post");
-  for(i in elements){
+  for (i in elements) {
     setTimeout(handleElement(elements[i]), 100);
   }
 }
-
 
 function getCategories() {
   // testing.
@@ -74,7 +82,7 @@ function getCategories() {
   xhr.send(data);
 }
 
-function ACW(){
+function ACW() {
   blurElements();
   setInterval(doBlur, 1000);
 }

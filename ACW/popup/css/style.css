@@ -1,0 +1,16 @@
+body {
+    min-width: 200px;
+    min-height: 150px;
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+}
+
+.custom-switch {
+    left: 5%;
+}
