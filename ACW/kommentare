@@ -14,3 +14,20 @@ console.log("miep")*/
 /*else if (mutation.type === 'attributes') {
     console.log('The ' + mutation.attributeName + ' attribute was modified.');
 }*/
+
+/*function start_observer(){
+  const targetNode = document.getElementsByClassName("Post")[0].parentElement;
+  const config = { attributes: true, childList: true,};
+  const callback = function(mutationList, observer) {
+      for(const mutation of mutationList) {
+          if (mutation.type === 'childList') {
+            elements = document.getElementsByClassName("Post");
+            for(i in elements){
+              console.log(i.attributes)
+            }
+          }
+      }
+  };
+  const observer = new MutationObserver(callback);
+  observer.observe(targetNode, config);
+}*/
